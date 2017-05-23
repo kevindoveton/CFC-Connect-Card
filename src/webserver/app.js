@@ -1,18 +1,21 @@
-"use strict"
-
-const path = require('path');
+'use strict'
 
 // express
+// -----------------
 const express = require('express');
 const app = express();
 
-// disable powered by express
 app.disable('x-powered-by');
+app.set('view engine', 'pug');
 
 // routes
-const index = require('./routes/index');
+// -----------------
 const api = require('./routes/api');
 app.use('/api', api);
+
+const cp = require('./routes/cp');
+app.use('/cp', cp);
+
 app.use('/', express.static('./build/'));
 
 module.exports = app;
