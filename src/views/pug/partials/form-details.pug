@@ -1,0 +1,45 @@
+h2 Details
+
+div.input(ng-show="details.show.firstName")
+	input(ng-model="details.values.firstName" ng-blur="changeGender()")
+	label(ng-class="{active: details.values.firstName}") First Name
+	
+div.input(ng-show="details.show.lastName")
+	input(ng-model="details.values.lastName")
+	label(ng-class="{active: details.values.lastName}") Last Name
+	
+div.input(ng-show="details.show.gender")
+	select(ng-model="details.values.gender")
+		option(value="male") Male
+		option(value="female") Female
+	label.active Gender
+
+div.input(ng-show="details.show.age")
+	select(ng-model="details.values.age")
+		option(value="13-17") 13 - 17
+		option(value="18-25") 18 - 25
+		option(value="26-39") 26 - 39
+		option(value="40-55") 40 - 55
+		option(value="56-69") 56 - 69
+		option(value="70+") 70+
+	label.active Age
+	
+div.input(ng-show="details.show.family")
+	select(ng-model="details.values.family")
+		option(value="own") I am on my own
+		option(value="family") I am with family
+	label.active Who are you with
+//- div.input(ng-show="false")
+	input
+	label 
+
+div.input(ng-show="details.show.number")
+	input(ng-model="details.values.number")
+	label(ng-class="{active: details.values.number}") Contact Number
+	
+div.input(ng-show="details.show.email")
+	input(ng-model="details.values.email")
+	label(ng-class="{active: details.values.email}") Email Address
+
+button(ng-click="details.next()")
+	p Next

@@ -1,0 +1,23 @@
+h2 Feedback
+
+div.input(ng-show="feedback.show.service")
+	select(ng-model="feedback.details.service")
+		option(value="early") CFC Early Service (8:30am)
+		option(value="together") CFC Together (10:30am)
+		option(value="live") CFC Live (6pm)
+	label.active Which service do you attend
+
+div.input(ng-show="feedback.show.likeMost")
+	input(ng-model="feedback.details.likeMost")
+	label(ng-class="{active: feedback.details.likeMost}") What did you like most about our service
+
+div.input(ng-show="feedback.show.likeLeast")
+	input(ng-model="feedback.details.likeLeast")
+	label(ng-class="{active: feedback.details.likeLeast}") What did you like least about our service
+
+div.input(ng-show="feedback.show.feedback")
+	textarea(ng-model="feedback.details.feedback")
+	label(ng-class="{active: feedback.details.feedback}") Any other feedback about our service?
+
+button(ng-click="feedback.submit();")
+	p Submit

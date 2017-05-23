@@ -1,0 +1,29 @@
+{
+  "name": "connect",
+  "version": "1.0.0",
+  "description": "Family Centre connect card",
+  "main": "src/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Doveton",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "angular-ui-router": "^0.4.2",
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-main-bower-files": "^1.6.2",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-uglify": "^2.1.2",
+    "main-bower-files": "^2.13.1",
+    "pump": "^1.0.2"
+  }
+}
