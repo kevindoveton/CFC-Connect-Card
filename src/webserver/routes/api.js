@@ -33,6 +33,10 @@ router.get('/', (req, res) => {
 	return res.send('api');
 });
 
+/**
+ * Returns all cards
+ * @returns {Array} cards - array of card objects
+ */
 router.get('/cards', (req, res) => {
 	Card.find((err, cards) => {
 		if (err) {
@@ -43,6 +47,10 @@ router.get('/cards', (req, res) => {
 	})
 });
 
+/**
+ * Deletes an array of cards
+ * @param {Array} cards ids
+ */
 router.delete('/cards', (req, res) => {
 	for (var i = 0; i < req.body.length; i++) {
 		console.log(req.body[i]);
@@ -53,6 +61,11 @@ router.delete('/cards', (req, res) => {
 	return res.status(204).send();
 });
 
+/** 
+ * returns a single card
+ * @param {String} card_id
+ * @returns {Object} card - the card object
+ */
 router.get('/cards/:card_id', (req, res) => {
 	Card.findById(req.params.card_id, (err, card) => {
 		if (err) {
@@ -63,6 +76,11 @@ router.get('/cards/:card_id', (req, res) => {
 	})
 });
 
+/**
+ * delete a single card
+ * @param {String} id - the card id
+ * @returns {null}
+ */
 router.delete('/cards/:card_id', (req, res) => {
 	Card.findByIdAndRemove(req.params.card_id, (err, result) => {
 		if (err) {
@@ -72,6 +90,11 @@ router.delete('/cards/:card_id', (req, res) => {
 	});
 });
 
+/**
+ * create a new card
+ * @param {Object} card object
+ * @returns {String} card id
+ */
 router.post('/cards', (req, res) => {
 	console.log(req.body);
 	const c = new Card(req.body);
