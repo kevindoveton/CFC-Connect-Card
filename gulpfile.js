@@ -34,12 +34,12 @@ gulp.task('userjs', function(cb) {
 	pump([
 		gulp.src(paths.js_build + '**/*.js'),
 		sourcemaps.init(),
-		concat('dist.js'),
 		uglify({
 			preserveComments: 'license',
 			mangle: false,
 			compress: false,
 		}),
+		concat('dist.js'),
 		sourcemaps.write('maps'),
 		gulp.dest(paths.js_dist)
 	], function(e) {

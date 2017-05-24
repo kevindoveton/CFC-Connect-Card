@@ -50,6 +50,53 @@ angular.module('cfcConnect').factory('HttpService', function ($http, $q, localSt
 					}
 				});
 			})
+		},
+		
+		getAllCards: function() {
+			return new Promise(function(accept, reject) {
+				$http({
+					method: 'GET',
+					url: '/api/v1/cards/',
+					params: {}
+				}).then(function(success) {
+					try {
+						if (success.data !== null) {
+							accept(success.data);
+						}
+						else {
+							reject(false);
+						}
+					}
+					catch(err) {
+						console.warn(err);
+						reject(false);
+					}
+				});
+			})
+		},
+		
+		getCardById: function(_id) {
+			return new Promise(function(accept, reject) {
+				if (typeof(_id) == 'undefined') reject('requires id')
+				$http({
+					method: 'GET',
+					url: '/api/v1/cards/'+_id,
+					params: {}
+				}).then(function(success) {
+					try {
+						if (success.data !== null) {
+							accept(success.data);
+						}
+						else {
+							reject(false);
+						}
+					}
+					catch(err) {
+						console.warn(err);
+						reject(false);
+					}
+				});
+			})
 		}
 	}
 });

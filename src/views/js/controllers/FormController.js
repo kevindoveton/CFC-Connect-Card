@@ -9,8 +9,12 @@ String.prototype.hashCode = function() {
 	return hash;
 };
 
-angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope, localStorageService, $state, HttpService) {	
-	$scope.intent = function(_intent) {
+angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope, localStorageService, $state, HttpService) {
+	$scope.intent = 'other';
+	
+	$scope.setIntent = function(_intent) {
+		$scope.intent = _intent;
+		$scope.details.show = showDetails(_intent);
 		$state.go('form.details', {
 			form: {
 				intent: _intent,
@@ -20,7 +24,7 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 	}
 	
 	$scope.details = {
-		show: showDetails();
+		show: showDetails(),
 		values: {
 			firstName: '',
 			lastName: '',
@@ -108,7 +112,6 @@ function showDetails(intent) {
 	var _family = false;
 	var _number = false;
 	const _email = true;
-	
 	// connect specific
 	if (intent == 'connect') {
 		_gender = true;

@@ -38,6 +38,14 @@ angular.module('cfcConnect', [
 		templateUrl: '/partials/form-feedback.html',
 	});
 	
+	$stateProvider.state({
+		name: 'admin',
+		url: '/admin',
+		templateUrl: '/partials/admin.html',
+		controller: 'AdminCtrl',
+		params: {}
+	});
+	
 	// default route
 	$urlRouterProvider.otherwise('/form/buttons');
 	
