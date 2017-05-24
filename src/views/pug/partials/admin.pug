@@ -7,7 +7,7 @@ div.container
 				th Name
 				th Type
 		tbody
-			tr(ng-repeat="row in rows" ng-click="" ng-class="").pointer
+			tr(ng-repeat="row in rows" ng-click="showCard(row)" ng-class="").pointer
 				td {{row.name}}
 				td {{row.intent}}
 

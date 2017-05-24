@@ -31,4 +31,18 @@ angular.module('cfcConnect.controllers').controller('AdminCtrl', function($scope
 		$scope.$apply();
 	});
 	
+	$scope.showCard = function(_card) {
+		ModalService.showModal({
+			templateUrl: 'modals/single-card.html',
+			controller: 'ModalAdminCardCtrl',
+			inputs: {
+				card: _card
+			}
+		}).then(function(modal) {
+			modal.close.then(function(result) {
+			
+			});
+		});
+	}
+	
 });

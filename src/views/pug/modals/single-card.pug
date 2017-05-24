@@ -1,0 +1,42 @@
+extends _baseModal
+
+block content
+	h1 Type
+	p {{card.intent}}
+	
+	h1 Details
+	
+	h2 Name
+	p {{card.name}}
+
+	h2 Gender
+	p {{card.details.gender}}
+	
+	h2 Age
+	p {{card.details.age}}
+	
+	h2 Family
+	p {{card.details.family}}
+	
+	h2 Number
+	p {{card.details.number}}
+	
+	h2 Email
+	p {{card.details.family}}
+	
+	h1 Feedback
+	
+	h2 Service
+	p {{card.details.service}}
+	
+	h2 Like Most
+	p {{card.feedback.likeMost}}
+	
+	h2 Like Least
+	p {{card.feedback.likeLeast}}
+
+	h2 Feedback
+	p {{card.feedback.feedback}}
+
+	h2 uuid
+	p {{card.uuid}}
