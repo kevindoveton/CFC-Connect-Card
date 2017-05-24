@@ -96,6 +96,7 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 			var form = $state.params.form;
 			form.feedback = $scope.feedback.details;
 			console.log(form);
+			
 		}
 	}
 	

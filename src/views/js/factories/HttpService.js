@@ -24,6 +24,31 @@ angular.module('cfcConnect').factory('HttpService', function ($http, $q, localSt
 					}
 				});
 			})
+		},
+		postCard: function(obj) {
+			return new Promise(function(accept, reject) {
+				$http({
+					method: 'POST',
+					url: '/api/v1/cards/',
+					headers: {
+						'Content-Type': "application/json"
+					},
+					data: obj
+				}).then(function(success) {
+					try {
+						if (success.data.gender !== null) {
+							accept(success.data.gender);
+						}
+						else {
+							reject(false);
+						}
+					}
+					catch(err) {
+						console.warn(err);
+						reject(false);
+					}
+				});
+			})
 		}
 	}
 });
