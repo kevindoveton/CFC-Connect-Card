@@ -9,6 +9,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/connect-cards');
 const CARD_SCHEMA = mongoose.Schema({
 	intent: String,
+	uuid: String,
 	details: {
 		firstName: String,
 		lastName: String,
