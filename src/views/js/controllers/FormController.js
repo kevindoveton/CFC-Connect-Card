@@ -10,7 +10,6 @@ String.prototype.hashCode = function() {
 };
 var _showDetails = showDetails('other')
 angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope, localStorageService, $state, HttpService) {
-	
 	$scope.setIntent = function(_intent) {
 		$scope.intent = _intent;
 		_showDetails = showDetails(_intent);
@@ -90,10 +89,15 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 			feedback: ''
 		},
 		submit: function() {
+			$scope.loading = true;
 			var form = $state.params.form;
 			form.feedback = $scope.feedback.details;
 			console.log(form);
-			HttpService.postCard(form);
+			HttpService.postCard(form).then(function() {
+				$scope.loading = false;
+				$scope.$apply();
+				$state.go('form.thankyou')
+			});
 		}
 	}
 	

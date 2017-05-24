@@ -40,6 +40,12 @@ angular.module('cfcConnect', [
 	});
 	
 	$stateProvider.state({
+		name: 'form.thankyou',
+		url: '/thankyou',
+		templateUrl: '/partials/form-thankyou.html',
+	});
+	
+	$stateProvider.state({
 		name: 'admin',
 		url: '/admin',
 		templateUrl: '/partials/admin.html',

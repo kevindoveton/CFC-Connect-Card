@@ -24,7 +24,10 @@ angular.module('cfcConnect.controllers').controller('AdminCtrl', function($scope
 			
 			$scope.rows.push({
 				name: _name,
-				intent: _intent
+				intent: _intent,
+				details: card.details,
+				feedback: card.feedback,
+				uuid: card.uuid
 			});
 		}
 		$scope.loading = false;
