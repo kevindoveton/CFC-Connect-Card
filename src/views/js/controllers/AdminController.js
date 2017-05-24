@@ -1,7 +1,8 @@
-angular.module('cfcConnect.controllers').controller('AdminCtrl', function($scope, localStorageService, $state, HttpService) {	
+angular.module('cfcConnect.controllers').controller('AdminCtrl', function($scope, localStorageService, $state, HttpService, ModalService) {	
 	$scope.rows = [];
+	$scope.loading = true; // show loader
 	HttpService.getAllCards().then(function(d) {
-		console.log(d);
+		
 		for (var i = 0; i < d.length; i++) {
 			var card = d[i];
 			var _name = card.details.firstName;
@@ -26,6 +27,8 @@ angular.module('cfcConnect.controllers').controller('AdminCtrl', function($scope
 				intent: _intent
 			});
 		}
+		$scope.loading = false;
 		$scope.$apply();
 	});
+	
 });

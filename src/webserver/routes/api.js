@@ -44,7 +44,9 @@ router.get('/cards', (req, res) => {
 			console.log(err);
 			return res.status(500).send();
 		}
+		
 		return res.status(200).send(JSON.stringify(cards));
+		
 	})
 });
 

@@ -1,4 +1,8 @@
+// third party
 @import include/reset
+@import include/loader
+
+// first party
 @import include/variables
 @import include/typography
 @import include/forms
@@ -6,6 +10,16 @@
 
 div.container
 	margin: 1em
+
+div.overlay
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: rgba(#333, 0.5)
+	display: flex
+	align-items: center
 
 // body
 	// background-color: #333

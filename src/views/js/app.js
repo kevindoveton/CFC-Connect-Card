@@ -7,7 +7,8 @@ angular.module('cfcConnect', [
 	'cfcConnect.services',
 	'cfcConnect.directives',
 	'ui.router',
-	'LocalStorageModule'
+	'LocalStorageModule',
+	'angularModalService'
 ]).config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 	// ui router
 	$stateProvider.state({
