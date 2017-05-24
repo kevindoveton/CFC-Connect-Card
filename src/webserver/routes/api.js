@@ -30,6 +30,16 @@ router.get('/cards', (req, res) => {
 	})
 });
 
+router.get('/cards/:card_id', (req, res) => {
+	Card.findById(req.params.card_id, (err, card) => {
+		if (err) {
+			console.log(err);
+			return res.status(500).send();
+		}
+		return res.status(200).send(JSON.stringify(card));
+	})
+});
+
 router.post('/cards', (req, res) => {
 	console.log(req.body);
 	const c = new Card({intent: req.body.intent});
