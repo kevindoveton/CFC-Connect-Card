@@ -8,13 +8,12 @@ String.prototype.hashCode = function() {
 	}
 	return hash;
 };
-
+var _showDetails = showDetails('other')
 angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope, localStorageService, $state, HttpService) {
-	$scope.intent = 'other';
 	
 	$scope.setIntent = function(_intent) {
 		$scope.intent = _intent;
-		$scope.details.show = showDetails(_intent);
+		_showDetails = showDetails(_intent);
 		$state.go('form.details', {
 			form: {
 				intent: _intent,
@@ -24,7 +23,7 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 	}
 	
 	$scope.details = {
-		show: showDetails(),
+		show: _showDetails,
 		values: {
 			firstName: '',
 			lastName: '',

@@ -3,5 +3,24 @@
 @import include/typography
 @import include/forms
 @import include/tables
+
 div.container
 	margin: 1em
+
+// body
+	// background-color: #333
+
+div.intentContainer
+	height: 9em
+	background-color: $primary-color
+	color: $primary-text-color
+	margin: 0 -1em
+	
+	display: flex
+	align-items: center
+	
+	div.text
+		padding-left: 1em
+
+div.intentContainer:nth-child(2n+0)
+	background-color: $primary-color-text
