@@ -11,16 +11,44 @@ div.container
 	// background-color: #333
 
 div.intentContainer
+	position: relative
 	height: 9em
-	background-color: $primary-color
 	color: $primary-text-color
 	margin: 0 -1em
 	
 	display: flex
 	align-items: center
+		
+	&:first-of-type
+		margin-top: .5em
 	
 	div.text
+		h1
+			font-size: 1.5em
 		padding-left: 1em
 
-div.intentContainer:nth-child(2n+0)
-	background-color: $primary-color-text
+div.intentContainer:nth-child(2n+1)
+	background-color: $primary-color
+
+
+// .intentContainer::before
+// 	position: absolute
+// 	top: 0
+// 	left: 0
+// 	right: 0
+// 	bottom: 0
+// 	content: ''
+// 	filter: blur(3px)
+// 	z-index: -1
+// 
+// .team::before
+// 	background: url('/img/team.jpg')
+// 	background-position: center
+// 	
+// .connect::before
+// 	background: url('/img/connect.jpg')
+// 	background-position: center
+// 
+// .christ::before
+// 	background: url('/img/christ.jpg')
+// 	background-position: center
