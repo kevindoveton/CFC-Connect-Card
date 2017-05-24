@@ -61,15 +61,16 @@ gulp.task('vendorjs', function(cb) {
 	pump([
 		gulp.src(mainBowerFiles()),
 		sourcemaps.init(),
-		concat('vendor.js'),
 		uglify({
-			output: {
-				beautify: true,
-				comments: true
-			},
-			mangle: false,
-			compress: false,
+			// output: {
+				// beautify: true,
+				// comments: true
+			// },
+			mangle: true,
+			compress: true,
+			preserveComments: 'license'
 		}),
+		concat('vendor.js'),
 		sourcemaps.write('maps'),
 		gulp.dest(paths.js_dist)
 	], function(e) {
