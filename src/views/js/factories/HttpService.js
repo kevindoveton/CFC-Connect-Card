@@ -25,6 +25,7 @@ angular.module('cfcConnect').factory('HttpService', function ($http, $q, localSt
 				});
 			})
 		},
+		
 		postCard: function(obj) {
 			return new Promise(function(accept, reject) {
 				$http({
@@ -36,8 +37,8 @@ angular.module('cfcConnect').factory('HttpService', function ($http, $q, localSt
 					data: obj
 				}).then(function(success) {
 					try {
-						if (success.data.gender !== null) {
-							accept(success.data.gender);
+						if (success.data !== null) {
+							accept(success.data);
 						}
 						else {
 							reject(false);

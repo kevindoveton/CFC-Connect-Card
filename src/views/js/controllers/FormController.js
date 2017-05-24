@@ -10,24 +10,17 @@ String.prototype.hashCode = function() {
 };
 
 angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope, localStorageService, $state, HttpService) {	
-	$scope.intent = function(intent) {
+	$scope.intent = function(_intent) {
 		$state.go('form.details', {
 			form: {
-				intent: intent
+				intent: _intent,
+				uuid: _uuid
 			}
 		});
 	}
 	
 	$scope.details = {
-		show: {
-			firstName: true, // always true
-			lastName: true, // always true
-			gender: true,
-			age: true,
-			family: true,
-			number: true,
-			email: true
-		},
+		show: showDetails();
 		values: {
 			firstName: '',
 			lastName: '',
@@ -41,7 +34,6 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 			var form = $state.params.form;
 			console.log(form);
 			form.details = $scope.details.values;
-			
 			$state.go('form.feedback', {
 				form: form
 			});
@@ -55,18 +47,20 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 		});
 	};
 	
-	var uuid = localStorageService.get('uuid');
-	if (uuid == null) {
+	var _uuid = localStorageService.get('uuid');
+	if (_uuid == null) {
 		// technically this could conflict - but i doubt it would ever happen
-		uuid = (Date.now() + navigator.product + navigator.userAgent + history.length).hashCode();
-		localStorageService.set('uuid', uuid);
+		_uuid = (Date.now() + navigator.product + navigator.userAgent + history.length).hashCode();
+		localStorageService.set('uuid', _uuid);
 	}
 	
-	var service = 'early';
-	var now = new Date();
+	// TODO: analyse who uses this most then update default
+	var service = 'together'; // most people go to together
 	
+	var now = new Date();
 	// check if day is sunday
 	if (now.getDay() == 0) {
+		service = 'early';
 		
 		// past 10am 
 		if (now.getHours() > 10) {
@@ -96,8 +90,52 @@ angular.module('cfcConnect.controllers').controller('FormCtrl', function($scope,
 			var form = $state.params.form;
 			form.feedback = $scope.feedback.details;
 			console.log(form);
-			
+			HttpService.postCard(form);
 		}
 	}
 	
 });
+
+/**
+ * @param {String} intent
+ * @returns {Object} show
+ */
+function showDetails(intent) {
+	const _firstName = true; // always true
+	const _lastName = true; // always true
+	var _gender = false;
+	var _age = false;
+	var _family = false;
+	var _number = false;
+	const _email = true;
+	
+	// connect specific
+	if (intent == 'connect') {
+		_gender = true;
+		_age = true;
+		_number = true;
+	}
+	// team specific
+	if (intent == 'team') {
+		_age = true;
+		_number = true;
+	}
+	
+	// other
+	if (intent == 'other') {
+		_gender = true;
+		_age = true;
+		_family = true;
+		_number = true;
+	}
+	
+	return {
+		firstName: _firstName,
+		lastName: _lastName,
+		gender: _gender,
+		age: _age,
+		family: _family,
+		number: _number,
+		email: _email
+	}
+}
