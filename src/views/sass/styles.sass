@@ -13,18 +13,12 @@
 div.container
 	margin: 1em
 
-div.overlay
-	position: absolute
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	background-color: rgba(#333, 0.5)
-	display: flex
-	align-items: center
-
-// body
-	// background-color: #333
+body
+	height: 100vh
+	width: 100vw
+	
+.pointer
+	cursor: pointer
 
 div.intentContainer
 	position: relative
@@ -45,26 +39,3 @@ div.intentContainer
 
 div.intentContainer:nth-child(2n+1)
 	background-color: $primary-color
-
-
-// .intentContainer::before
-// 	position: absolute
-// 	top: 0
-// 	left: 0
-// 	right: 0
-// 	bottom: 0
-// 	content: ''
-// 	filter: blur(3px)
-// 	z-index: -1
-// 
-// .team::before
-// 	background: url('/img/team.jpg')
-// 	background-position: center
-// 	
-// .connect::before
-// 	background: url('/img/connect.jpg')
-// 	background-position: center
-// 
-// .christ::before
-// 	background: url('/img/christ.jpg')
-// 	background-position: center

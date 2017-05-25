@@ -6,7 +6,9 @@ div.container
 			tr
 				th Name
 				th Type
+				th Date
 		tbody
 			tr(ng-repeat="row in rows" ng-click="showCard(row)" ng-class="").pointer
 				td {{row.name}}
 				td {{row.intent}}
+				td {{row.date}}

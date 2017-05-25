@@ -16,6 +16,8 @@
   "devDependencies": {
     "angular-ui-router": "^0.4.2",
     "bower": "^1.8.0",
+    "dgeni": "^0.4.7",
+    "dgeni-packages": "^0.19.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",

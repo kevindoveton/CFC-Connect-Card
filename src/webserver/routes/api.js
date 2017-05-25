@@ -36,6 +36,8 @@ router.get('/', (req, res) => {
 
 /**
  * Returns all cards
+ * @param {Object} req - request object
+ * @param {Object} res - response object
  * @returns {Array} cards - array of card objects
  */
 router.get('/cards', (req, res) => {
