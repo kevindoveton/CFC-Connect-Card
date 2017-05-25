@@ -1,0 +1,11 @@
+div#login
+	div.loginBox
+		form
+			div.inputField
+				input(ng-model="username")
+				label(ng-class="{active: username}") Username
+			div.inputField.password
+				input(type="password" ng-model="password")
+				label(ng-class="{active: password}") Password
+				p.error(ng-class="{showError: showError}") Incorrect User or Password
+			button.login(ng-click="login()") Login

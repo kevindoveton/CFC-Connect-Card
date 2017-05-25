@@ -46,6 +46,13 @@ angular.module('cfcConnect', [
 	});
 	
 	$stateProvider.state({
+		name: 'login',
+		url: '/login',
+		templateUrl: '/partials/login.html',
+		controller: 'LoginCtrl'
+	});
+	
+	$stateProvider.state({
 		name: 'admin',
 		url: '/admin',
 		templateUrl: '/partials/admin.html',
