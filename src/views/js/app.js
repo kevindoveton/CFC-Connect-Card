@@ -24,24 +24,28 @@ angular.module('cfcConnect', [
 	$stateProvider.state({
 		name: 'form.buttons',
 		url: '/buttons',
+		controller: 'FormButtonsCtrl',
 		templateUrl: '/partials/form-buttons.html',
 	});
 	
 	$stateProvider.state({
 		name: 'form.details',
 		url: '/details',
+		controller: 'FormDetailsCtrl',
 		templateUrl: '/partials/form-details.html',
 	});
 	
 	$stateProvider.state({
 		name: 'form.feedback',
 		url: '/feedback',
+		controller: 'FormFeedbackCtrl',
 		templateUrl: '/partials/form-feedback.html',
 	});
 	
 	$stateProvider.state({
 		name: 'form.thankyou',
 		url: '/thankyou',
+		controller: 'FormThankyouCtrl',
 		templateUrl: '/partials/form-thankyou.html',
 	});
 	

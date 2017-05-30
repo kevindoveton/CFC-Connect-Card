@@ -28,6 +28,14 @@ const CARD_SCHEMA = mongoose.Schema({
 });
 const Card = mongoose.model('Card', CARD_SCHEMA);
 
+const USER_SCHEMA = mongoose.Schema({
+	username: String,
+	password: String,
+	salt: String,
+	email: String
+});
+const User = mongoose.model('User', USER_SCHEMA);
+
 router.use(bodyParser.json());
 
 router.get('/', (req, res) => {
